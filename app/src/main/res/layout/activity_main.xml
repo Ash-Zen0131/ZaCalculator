@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    tools:context=".MainActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_navy"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/ToolbarTitleStyle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Input Section -->
+            <LinearLayout
+                android:id="@+id/inputSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_section"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:elevation="2dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvGoldTypeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type of Gold"
+                        android:textColor="@color/primary_navy"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Switch
+                        android:id="@+id/swGT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.4"
+                        android:scaleY="1.4"
+                        android:showText="false"
+                        android:switchMinWidth="80dp"
+                        android:thumb="@drawable/thumb"
+                        android:track="@drawable/bg_track"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.842"
+                        app:layout_constraintStart_toEndOf="@+id/tvGoldTypeLabel"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tvGoldTypeStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Keep (85g)"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Gold Weight (grams)"
+                    android:textColor="@color/primary_navy"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/etGW"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:hint="Enter weight"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="#A0A0A0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Gold Price Per Gram (RM)"
+                    android:textColor="@color/primary_navy"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/etGP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:hint="Enter price"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="#A0A0A0" />
+
+                <Button
+                    android:id="@+id/btnCalculate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:backgroundTint="@color/primary_navy"
+                    android:text="Calculate Zakat"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <!-- Output Section -->
+            <LinearLayout
+                android:id="@+id/outputSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_output_section"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:elevation="4dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1">
+
+                    <TableRow android:layout_marginBottom="12dp">
+                        <TextView
+                            android:fontFamily="sans-serif-black"
+                            android:text="Total Gold Value:"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tvGoldValue"
+                            android:gravity="end"
+                            android:text="RM 0.00"
+                            android:textColor="@color/secondary_light_gold"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <TableRow android:layout_marginBottom="12dp">
+                        <TextView
+                            android:fontFamily="sans-serif-black"
+                            android:text="Zakat Payable:"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tvZakatPayable"
+                            android:gravity="end"
+                            android:text="RM 0.00"
+                            android:textColor="@color/secondary_light_gold"
+                            android:textSize="20sp" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="sans-serif-black"
+                            android:text="Total Zakat:"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tvTotalZakat"
+                            android:gravity="end"
+                            android:text="RM 0.00"
+                            android:textColor="@color/accent_gold"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
