@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode Theme Colors -->
+    <color name="primary_navy">#8EACBB</color> <!-- Lighter blue-gray for better visibility in night mode -->
+    <color name="accent_gold">#FFD700</color> <!-- Keep gold -->
+    <color name="secondary_light_gold">#FFD54F</color> <!-- Slightly brighter gold -->
+    <color name="background_light">#050F22</color> <!-- Deepest navy blue for background -->
+    <color name="text_dark">#FAFAFA</color> <!-- Off-white text -->
+</resources>
